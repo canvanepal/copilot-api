@@ -4,6 +4,7 @@ import consola from "consola"
 import { streamSSE, type SSEMessage } from "hono/streaming"
 
 import { awaitApproval } from "~/lib/approval"
+import { getBackendModelId } from "~/lib/model-config"
 import { checkRateLimit } from "~/lib/rate-limit"
 import { state } from "~/lib/state"
 import { getTokenCount } from "~/lib/tokenizer"
@@ -20,9 +21,22 @@ export async function handleCompletion(c: Context) {
   let payload = await c.req.json<ChatCompletionsPayload>()
   consola.debug("Request payload:", JSON.stringify(payload).slice(-400))
 
-  // Find the selected model
+  // Get the actual backend model to call
+  const backendModelId = getBackendModelId(payload.model)
+
+  if (backendModelId !== payload.model) {
+    consola.info(
+      `Model SWAPPED: Client sent "${payload.model}" → Backend will call "${backendModelId}"`,
+    )
+    payload = {
+      ...payload,
+      model: backendModelId,
+    }
+  }
+
+  // Find the selected model using the backend model ID
   const selectedModel = state.models?.data.find(
-    (model) => model.id === payload.model,
+    (model) => model.id === backendModelId,
   )
 
   // Calculate and display token count

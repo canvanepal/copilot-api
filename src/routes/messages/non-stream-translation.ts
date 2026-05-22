@@ -1,3 +1,4 @@
+import { getBackendModelId } from "~/lib/model-config"
 import {
   type ChatCompletionResponse,
   type ChatCompletionsPayload,
@@ -47,13 +48,16 @@ export function translateToOpenAI(
 }
 
 function translateModelName(model: string): string {
+  // First, apply model swapping
+  const swappedModel = getBackendModelId(model)
+
   // Subagent requests use a specific model number which Copilot doesn't support
-  if (model.startsWith("claude-sonnet-4-")) {
-    return model.replace(/^claude-sonnet-4-.*/, "claude-sonnet-4")
-  } else if (model.startsWith("claude-opus-")) {
-    return model.replace(/^claude-opus-4-.*/, "claude-opus-4")
+  if (swappedModel.startsWith("claude-sonnet-4-")) {
+    return swappedModel.replace(/^claude-sonnet-4-.*/, "claude-sonnet-4")
+  } else if (swappedModel.startsWith("claude-opus-")) {
+    return swappedModel.replace(/^claude-opus-4-.*/, "claude-opus-4")
   }
-  return model
+  return swappedModel
 }
 
 function translateAnthropicMessagesToOpenAI(

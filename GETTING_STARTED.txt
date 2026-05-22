@@ -1,0 +1,164 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                  COPILOT API SERVER - GETTING STARTED                      ║
+║                                                                            ║
+║                     Quick Start in 4 Simple Steps!                        ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📍 LOCATION: C:\Users\Arun\Downloads\clauuu\copilot-api
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 OPTION 1: EASIEST (Windows Only)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Open File Explorer
+2. Go to: C:\Users\Arun\Downloads\clauuu\copilot-api
+3. Double-click: start.bat
+4. Done! Server is running 🚀
+
+That's it! The batch file handles everything automatically.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 OPTION 2: MANUAL (All Platforms)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Open Terminal/Command Prompt
+────────────────────────────────────────────────────────────────────────────
+Command:
+  cd C:\Users\Arun\Downloads\clauuu\copilot-api
+
+STEP 2: Install Dependencies (First Time Only)
+────────────────────────────────────────────────────────────────────────────
+Command:
+  bun install
+
+OR if you don't have bun:
+  npm install
+
+⏳ Wait 1-2 minutes for completion
+
+
+STEP 3: Authenticate (First Time Only)
+────────────────────────────────────────────────────────────────────────────
+Command:
+  npm start -- auth
+
+What happens:
+  ✓ Browser opens automatically
+  ✓ Click "Authorize" on GitHub
+  ✓ Tokens are saved locally
+  ✓ You're authenticated! ✅
+
+
+STEP 4: Start the Server
+────────────────────────────────────────────────────────────────────────────
+Command (Default Port 4141):
+  npm start
+
+Command (Custom Port - Example 3000):
+  npm start -- -p 3000
+
+Command (With Logging):
+  npm start -- -v
+
+✅ Server is now running!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ VERIFY IT'S WORKING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open a NEW terminal/command prompt and run:
+
+  curl http://localhost:4141/models
+
+You should see JSON with all available models! ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 WHAT YOU CONFIGURED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Model Renaming: src/lib/model-config.ts
+  ✓ gpt-5-mini → renamed to: claude-opus-4.6
+  ✓ claude-opus-4.6 → renamed to: gpt-5-mini
+
+These custom names will show in the /models endpoint!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔌 AVAILABLE ENDPOINTS (When running on port 4141)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GET  http://localhost:4141/models              → List all models
+GET  http://localhost:4141/usage               → Check usage stats
+GET  http://localhost:4141/token               → Check token info
+POST http://localhost:4141/chat/completions    → Chat completion
+POST http://localhost:4141/embeddings          → Create embeddings
+
+OpenAI Compatible:
+GET  http://localhost:4141/v1/models
+POST http://localhost:4141/v1/chat/completions
+
+Anthropic Compatible:
+POST http://localhost:4141/v1/messages
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📄 GETTING_STARTED.txt       ← You are here
+  📄 RUNNING_STEPS.md          ← Step-by-step guide
+  📄 HOW_TO_RUN.md             ← Visual guide with examples
+  📄 QUICK_START.md            ← Quick overview
+  📄 SERVER_SETUP_GUIDE.md     ← Detailed reference
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 QUICK TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "Port 4141 already in use"
+   → npm start -- -p 3000
+
+❌ "bun not found"
+   → npm install && npm start
+
+❌ "Auth failed"
+   → npm start -- auth
+
+❌ "Models not loading"
+   → npm start -- -v
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛑 STOPPING THE SERVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+In the terminal where the server is running, press:
+  Ctrl + C
+
+Server will stop gracefully.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 YOU'RE ALL SET!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Choose one:
+
+Option 1 (Windows): Double-click start.bat
+Option 2 (All):     npm start
+
+Your server will be live at: http://localhost:4141 🚀
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Questions? Check the documentation files or visit:
+https://github.com/ericc-ch/copilot-api
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                        HAPPY CODING! 🎉                                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
